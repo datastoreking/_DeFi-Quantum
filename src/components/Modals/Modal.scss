@@ -1,0 +1,318 @@
+%base-styles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 8px;
+  max-width: 560px;
+  padding: 2em;
+  width: 100%;
+}
+
+.modal_backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.transaction_modal {
+  @extend %base-styles;
+  max-width: 480px;
+  width: 100%;
+
+  &-content {
+    text-align: center;
+  }
+}
+
+.wallet_modal {
+  @extend %base-styles;
+  max-width: 480px;
+  width: 100%;
+  padding: 1.5em;
+
+  .flex-gap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      cursor: pointer;
+    }
+  }
+
+  .wallet_wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    gap: 1.5em;
+    margin-top: 2em;
+
+    &-card {
+      width: 80px;
+      height: 80px;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.withdraw_modal {
+  @extend %base-styles;
+  max-width: 480px;
+  width: 100%;
+  padding: 2em;
+
+  &-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.lotteryModal {
+  @extend %base-styles;
+  max-width: 560px;
+  padding: 2em;
+  position: relative;
+
+  .lottery_content {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+
+    &.active {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .lottery_input {
+      div {
+        display: flex;
+        align-items: center;
+        border: 1px solid #232323;
+        border-radius: 5px;
+
+        .remove_icon {
+          width: 30px;
+          height: 30px;
+          background-color: #fff;
+          position: relative;
+          box-shadow: 0.2px 0.2px 5px rgba(0, 0, 0, 0.1);
+          display: grid;
+          place-items: center;
+          margin-right: 1rem;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        .icon {
+          cursor: pointer;
+          width: 32px;
+          height: 32px;
+
+          svg {
+            width: inherit;
+            height: inherit;
+          }
+        }
+
+        input {
+          background-color: transparent;
+          outline: none;
+          border: none;
+          width: 100%;
+          text-align: center;
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+
+  .lottery_header {
+    display: flex;
+    justify-content: flex-end;
+
+    .add_more {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      opacity: 1;
+      cursor: pointer;
+      transition: opacity 250ms linear;
+
+      &.inactive {
+        pointer-events: none;
+        opacity: 0.8;
+
+        p {
+          color: var(--text-secondary);
+        }
+        svg {
+          path {
+            fill: var(--text-secondary);
+          }
+        }
+      }
+
+      p {
+        color: #000000;
+      }
+
+      svg {
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .error {
+    font-size: 12px;
+    color: tomato;
+    text-transform: capitalize;
+    text-align: center;
+  }
+}
+
+.modal_wallet_content {
+  @extend %base-styles;
+  display: flex;
+  flex-direction: column;
+
+  .wallets_wrapper {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 1em;
+
+    .wallet {
+      display: grid;
+      grid-template-columns: 70px auto;
+      padding: 1em 1.25em;
+      background: #ffffff;
+      border: 1px solid rgba(252, 188, 103, 1);
+      box-sizing: border-box;
+      box-shadow: 0px 1px 15px rgba(81, 224, 255, 0.05);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 250ms ease-in-out;
+
+      &.active {
+        opacity: 0.75;
+        cursor: no-drop;
+      }
+
+      > img {
+        width: 100%;
+        height: 70px;
+        object-fit: contain;
+      }
+
+      &_content {
+        margin-left: 1.25em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        grid-gap: 1em;
+
+        > div {
+          width: 90%;
+        }
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 1em;
+
+    .form_input {
+      label {
+        font-size: 14px;
+        font-weight: 60;
+        margin-bottom: 10px;
+      }
+      input,
+      .input-group-text {
+        background: #ffffff;
+        border: 1px solid #fcbc6780;
+        box-sizing: border-box;
+        outline: none;
+        border-radius: 8px;
+        padding: 1em;
+        font-size: 1em;
+        line-height: 24px;
+
+        &:focus {
+          outline: 1px solid rgba(252, 188, 103, 0.5);
+        }
+        &::placeholder {
+          /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #9599ad;
+          opacity: 1; /* Firefox */
+        }
+        &:-ms-input-placeholder {
+          /* Internet Explorer 10-11 */
+          color: #9599ad;
+        }
+        &::-ms-input-placeholder {
+          /* Microsoft Edge */
+          color: #9599ad;
+        }
+      }
+
+      .input-group-text {
+        background-color: #fcbc6780;
+        color: #9599ad;
+      }
+    }
+
+    button {
+      width: fit-content;
+    }
+  }
+
+  .modal_footer-links {
+    font-size: 12px;
+    a {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+}
+
+.accounts {
+  section {
+    .copy_clipboard {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      grid-gap: 1em;
+
+      span {
+        cursor: pointer;
+        height: 24px;
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

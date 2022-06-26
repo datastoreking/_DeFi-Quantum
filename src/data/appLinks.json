@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Farms/Staking",
+    "link": "/farms"
+  },
+  {
+    "label": "Reward Calculator",
+    "link": "/reward_calculator"
+  },
+  {
+    "label": "Wallet",
+    "link": "/wallet"
+  },
+  {
+    "label": "Lottery",
+    "link": "/lottery"
+  },
+  {
+    "label": "Contests",
+    "link": "/contests"
+  },
+  {
+    "label": "Fiverr Marketplace",
+    "link": "/fiverr_marketplace"
+  },
+  {
+    "label": "Game early access",
+    "link": "/game_early_access"
+  }
+]
